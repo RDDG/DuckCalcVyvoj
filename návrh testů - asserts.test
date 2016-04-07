@@ -30,7 +30,7 @@
 @Test
 public void testadd() 
 {
-    assertEquals(1, 		myClass(1+1));
+    assertEquals(2, 		myClass(1+1));
     assertEquals(10, 		myClass(1+9));
     assertEquals(40, 		myClass(6+34));
     assertEquals(1310720, 	myClass(65536+65536));
