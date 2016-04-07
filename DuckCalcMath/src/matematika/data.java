@@ -29,10 +29,13 @@ public class data {
 /* vypise posledni priklad v poly */    
     public String vypisPosledniPriklad(){
         //TO DO
+        return priklad;
     }
 
 /* vypise posledni vysledek v poly */  
     public long vypisPosledniVysledek(){
+        long vysledek=0;
         //TO DO
+        return vysledek;
     }
 }
