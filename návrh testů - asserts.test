@@ -35,8 +35,8 @@ public void testadd()
     assertEquals(40, 		myClass(6+34));
     assertEquals(1310720, 	myClass(65536+65536));
     assertEquals(10, 		myClass(3.1+6.9));
-    assertEquals(3.00000002, 	myClass(3.00000001+3.00000001));
-    assertEquals(17424, 	myClass(62+1322));
+    assertEquals(6.00000002, 	myClass(3.00000001+3.00000001));
+    assertEquals(1384, 	myClass(62+1322));
     assertEquals(4294967294, 	myClass(2147483647+2147483647));
     assertEquals(-1, 		myClass(4+(-5)));
     assertEquals(-9, 		myClass((-4)+(-5)));
