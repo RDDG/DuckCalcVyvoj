@@ -18,16 +18,17 @@ public class polozka {
     
 /* uloží String vstup do String priklad  */    
     polozka(String vstup){
-       //TO DO
+       priklad = vstup;
     }
 
-/* uloží long vstup do long vzsledek  */
+/* uloží long vstup do long vysledek  */
     polozka(long vstup){
-        //TO DO
+        vysledek = vstup;
     }
 
 /* uloží String vstupPriklad do String priklad a long vstupVysledek do Vysledek   */
     polozka(String vstupPriklad, long vstupVysledek){
-        //TO DO
+        priklad = vstupPriklad;
+        vysledek = vstupVysledek;
     }
 }

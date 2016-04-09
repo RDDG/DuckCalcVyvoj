@@ -24,8 +24,7 @@ public class data {
  
 /* pridá na konec pole nový výsledek */        
     public void pridejVysledek(long vysledek){
-       p = new polozka(vysledek);
-       Polozka.add(p);
+       Polozka.get(Polozka.size()-1).vysledek=vysledek;
     }
 
 /* vypise posledni priklad v poli */    
