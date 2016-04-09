@@ -9,7 +9,7 @@ package matematika;
  *
  * @author RDDG
  * 
- * třída polozka je struktura se třemi konstruktory - využívá se přetěžovano
+ * třída polozka je struktura se třemi konstruktory - využívá se přetěžovani
  * proměnné jsou veřejné pro jejich dosah i mimo třídu
  */
 public class polozka {

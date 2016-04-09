@@ -13,29 +13,37 @@ import java.util.*;
  */
 public class data {
     public String priklad;
-    ArrayList <polozka> Polozka=new ArrayList<polozka>();
+    ArrayList <polozka> Polozka = new ArrayList<polozka>();
     polozka p;
     
 /* pridá na konec pole novej příklad */     
     public void pridejPriklad(String vstupniPriklad){
-       //TO DO
+       p = new polozka(vstupniPriklad);
+       Polozka.add(p);
     }
  
 /* pridá na konec pole nový výsledek */        
     public void pridejVysledek(long vysledek){
-      //TO DO
+       p = new polozka(vysledek);
+       Polozka.add(p);
     }
 
-/* vypise posledni priklad v poly */    
+/* vypise posledni priklad v poli */    
     public String vypisPosledniPriklad(){
-        //TO DO
+        if ((Polozka != null) && (!Polozka.isEmpty())) {
+            p = Polozka.get(Polozka.size()-1);
+            String priklad = p.priklad;
+        }
         return priklad;
     }
 
-/* vypise posledni vysledek v poly */  
+/* vypise posledni vysledek v poli */  
     public long vypisPosledniVysledek(){
         long vysledek=0;
-        //TO DO
+        if ((Polozka != null) && (!Polozka.isEmpty())) {
+            p = Polozka.get(Polozka.size()-1);
+            vysledek = p.vysledek;
+        }
         return vysledek;
     }
 }
