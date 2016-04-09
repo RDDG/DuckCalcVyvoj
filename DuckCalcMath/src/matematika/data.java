@@ -23,7 +23,7 @@ public class data {
     }
  
 /* pridá na konec pole nový výsledek */        
-    public void pridejVysledek(long vysledek){
+    public void pridejVysledek(double vysledek){
        Polozka.get(Polozka.size()-1).vysledek=vysledek;
     }
 
@@ -37,8 +37,8 @@ public class data {
     }
 
 /* vypise posledni vysledek v poli */  
-    public long vypisPosledniVysledek(){
-        long vysledek=0;
+    public double vypisPosledniVysledek(){
+        double vysledek=0;
         if ((Polozka != null) && (!Polozka.isEmpty())) {
             p = Polozka.get(Polozka.size()-1);
             vysledek = p.vysledek;

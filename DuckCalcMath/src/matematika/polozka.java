@@ -14,20 +14,20 @@ package matematika;
  */
 public class polozka {
     public String priklad;
-    public long vysledek;
+    public double vysledek;
     
 /* uloží String vstup do String priklad  */    
     polozka(String vstup){
        priklad = vstup;
     }
 
-/* uloží long vstup do long vysledek  */
-    polozka(long vstup){
+/* uloží double vstup do double vysledek  */
+    polozka(double vstup){
         vysledek = vstup;
     }
 
-/* uloží String vstupPriklad do String priklad a long vstupVysledek do Vysledek   */
-    polozka(String vstupPriklad, long vstupVysledek){
+/* uloží String vstupPriklad do String priklad a double vstupVysledek do Vysledek   */
+    polozka(String vstupPriklad, double vstupVysledek){
         priklad = vstupPriklad;
         vysledek = vstupVysledek;
     }
