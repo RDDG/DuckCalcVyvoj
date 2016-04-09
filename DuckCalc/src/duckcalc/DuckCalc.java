@@ -23,6 +23,13 @@ public class DuckCalc {
         final data Data=new data();
         final grafika GUI=new grafika();
         final operation Operation=new operation();
+        GUI.tlRovnase.addActionListener(new ActionListener (){ //pridani posluchace tlacitka pomoci anonzmni metody
+            public void actionPerformed(ActionEvent e){
+                Data.pridejPriklad(GUI.vypis());
+                Data.pridejVysledek(Operation.vyres(Data));
+                System.out.print("\n"+Data.vypisPosledniVysledek());
+                }
+        }); 
         
         
     }
