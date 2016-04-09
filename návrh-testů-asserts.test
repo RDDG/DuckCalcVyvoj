@@ -1,0 +1,169 @@
+// Návrh testů a jejich jednotlivých assertů
+// Autor: RDDG
+// Datum: 9.4.2015
+// Popis: Opravené asserty pro jednotlivé testy, dodělány asserty pro chybové vstupy pro vyřeš().
+
+
+// testadd 		>> testy pro sčítání
+// testsub 		>> testy pro odečítání 
+// testmul 		>> testy pro násobení
+// testdiv 		>> testy pro dělení 
+// testpowsingle 	>> testy pro mocninu
+// testpowall 		>> testy pro počítání s mocninami
+// testmod 		>> testy pro modulo
+// testerr 		>> testy problémových stavů
+
+// testy jsou dělány na max 8 desetinných míst
+// * 	> násobení
+// / 	> dělení
+// + 	> sčítání
+// - 	> odečítání
+// % 	> modulo
+// ^ 	> mocnina
+// () 	> oddělení záporného čísla
+// error > označuje nedovolenou operaci
+
+
+
+
+@Test
+public void testadd() 
+{
+    assertEquals(2, 		vyřeš(1+1));
+    assertEquals(10, 		vyřeš(1+9));
+    assertEquals(40, 		vyřeš(6+34));
+    assertEquals(1310720, 	vyřeš(65536+65536));
+    assertEquals(10, 		vyřeš(3.1+6.9));
+    assertEquals(6.00000002, 	vyřeš(3.00000001+3.00000001));
+    assertEquals(1384,	 	vyřeš(62+1322));
+    assertEquals(4294967294, 	vyřeš(2147483647+2147483647));
+    assertEquals(-1, 		vyřeš(4+(-5)));
+    assertEquals(-9, 		vyřeš((-4)+(-5)));
+}
+
+@Test
+public void testsub() 
+{
+    assertEquals(0, 		vyřeš(1-1));
+    assertEquals(-8, 		vyřeš(1-9));
+    assertEquals(-28, 		vyřeš(6-34));
+    assertEquals(0,	 	vyřeš(65536-65536));
+    assertEquals(-3.8, 		vyřeš(3.1-6.9));
+    assertEquals(-0.00000004, 	vyřeš(3.00000001-3.00000005));
+    assertEquals(1260,	 	vyřeš(1322-62));
+    assertEquals(4294967294, 	vyřeš(2147483647-(-2147483647)));
+    assertEquals(9, 		vyřeš(4-(-5)));
+    assertEquals(1, 		vyřeš((-4)-(-5)));
+}
+
+@Test
+public void testdiv() 
+{
+    assertEquals(error, 	vyřeš(5/0));
+    assertEquals(0, 		vyřeš(0/5));
+    assertEquals(error, 	vyřeš(0/0));
+    assertEquals(12,	 	vyřeš(144/12));
+    assertEquals(12, 		vyřeš(122/12));
+    assertEquals(0.083333333, 	vyřeš(12/122));
+    assertEquals(0.2,	 	vyřeš(5/25));
+    assertEquals(5, 		vyřeš(25/5));
+    assertEquals(5, 		vyřeš((-25)/(-5)));
+    assertEquals(-5, 		vyřeš((-25)/5));
+}
+
+@Test
+public void testmul() 
+{
+    assertEquals(30,	 	vyřeš(6*5));
+    assertEquals(-25, 		vyřeš((-5)*5));
+    assertEquals(-25, 		vyřeš(5*(-5)));
+    assertEquals(78125,	 	vyřeš(55*52));
+    assertEquals(443556, 	vyřeš(666*666));
+    assertEquals(0, 		vyřeš(0*5));
+    assertEquals(0,	 	vyřeš(5*0));
+    assertEquals(0, 		vyřeš(0*0));
+}
+
+@Test
+public void testpowsingle() 
+{
+    assertEquals(5,	 	vyřeš(5^1));
+    assertEquals(25, 		vyřeš(5^2));
+    assertEquals(125, 		vyřeš(5^3));
+    assertEquals(1953125,	vyřeš(5^9));
+    assertEquals(30517578125, 	vyřeš(5^15));
+    assertEquals(-0.00032, 	vyřeš(5^(-5)));
+    assertEquals(0.00016, 	vyřeš(5^(-4)));
+    assertEquals(0.00032, 	vyřeš((-5)^(-5)));
+    assertEquals(1, 		vyřeš(5^0));
+    assertEquals(1, 		vyřeš(1254870^0));
+    assertEquals(1, 		vyřeš((-5)^0));
+    assertEquals(error, 	vyřeš(0^0));
+}
+
+@Test
+public void testpowall() 
+{
+    assertEquals(25,	 	vyřeš(5*5^1));
+    assertEquals(300, 		vyřeš(12*5^2));
+    assertEquals(-625, 		vyřeš((-5)*5^3));
+    assertEquals(-1952966,	vyřeš(159-5^9));
+    assertEquals(-29281028238, 	vyřeš(1236549887-5^15));
+    assertEquals(-0,000000102, 	vyřeš(0.00032*5^(-5)));
+    assertEquals(-0.00032, 	vyřeš((-1)*(-5)^(-5)));
+    assertEquals(-1, 		vyřeš((-1)*5^0));
+    assertEquals(126, 		vyřeš(1254870^0*126));
+    assertEquals(0.1, 		vyřeš((-5)^0)/10);
+    assertEquals(error, 	vyřeš(0^0/0));
+}
+
+@Test
+public void testmod() 
+{
+    assertEquals(1,	 	vyřeš(5%2));
+    assertEquals(0, 		vyřeš(2%2));
+    assertEquals(0, 		vyřeš(16%4);
+    assertEquals(1,		vyřeš(16%3));
+    assertEquals(3, 		vyřeš(12%9));
+    assertEquals(0, 		vyřeš(123456%12));
+    assertEquals(error, 	vyřeš(120%0));
+}
+
+@Test
+public void testerr() 
+{
+    assertEquals(error,	 	vyřeš(5**2));
+    assertEquals(error, 	vyřeš(2*/2));
+    assertEquals(error, 	vyřeš(16-+4);
+    assertEquals(error,		vyřeš(/163*6));
+    assertEquals(error,		vyřeš(12/0));
+    assertEquals(error,		vyřeš(123456%^12));
+    assertEquals(error, 	vyřeš();
+    assertEquals(error, 	vyřeš(*);
+    assertEquals(error, 	vyřeš(**);
+    assertEquals(error, 	vyřeš(+-*);
+    assertEquals(error, 	vyřeš(a);
+    assertEquals(error, 	vyřeš(a+b);
+    assertEquals(error, 	vyřeš(<|>);
+    assertEquals(error, 	vyřeš(^>^>^);
+    assertEquals(error, 	vyřeš(toto + je + test);
+    assertEquals(error, 	vyřeš(1 + 1);
+    assertEquals(error, 	vyřeš( );
+    assertEquals(error, 	vyřeš(ěšč);
+    assertEquals(error, 	vyřeš(##&&);
+    assertEquals(error, 	vyřeš("§!");
+    assertEquals(error, 	vyřeš(;);
+    assertEquals(error, 	vyřeš($1 + $4);
+    assertEquals(error, 	vyřeš(1+2+3);
+    assertEquals(error, 	vyřeš(.);
+    assertEquals(error, 	vyřeš((-.)*(54));
+    assertEquals(error, 	vyřeš(i++);
+    assertEquals(error, 	vyřeš(j=20);
+    assertEquals(error, 	vyřeš(break);
+    assertEquals(error, 	vyřeš(return 0);
+    assertEquals(error, 	vyřeš(return 1);
+    assertEquals(error, 	vyřeš(NULL);
+    assertEquals(error, 	vyřeš(INF);
+    assertEquals(error, 	vyřeš(INF-INF);
+}
+
