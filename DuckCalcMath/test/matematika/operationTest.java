@@ -17,7 +17,8 @@ import static org.junit.Assert.*;
  * @author RDDG
  */
 public class operationTest {
-    
+    data Data;
+    operation Operation;
     public operationTest() {
     }
     
@@ -31,8 +32,8 @@ public class operationTest {
     
     @Before
     public void setUp() {
-        data Data=new data();
-        operation Operation=new operation();
+        Data=new data();
+        Operation=new operation();
     }
     
     @After
@@ -48,277 +49,278 @@ public class operationTest {
     @Test
     public void testadd() 
     {
-        Data.pridejPriklad(1+1);
-            assertEquals(2,             Operation.vyres(Data),0.0);
         
-        Data.pridejPriklad(1+9);
+        Data.pridejPriklad("1+1");
+            assertEquals(2,             Operation.vyres(Data),0.);
+        
+        Data.pridejPriklad("1+9");
             assertEquals(10,            Operation.vyres(Data),0.0);
         
-        Data.pridejPriklad(6+34);
+        Data.pridejPriklad("6+34");
             assertEquals(40,            Operation.vyres(Data),0.0);
         
-        Data.pridejPriklad(65536+65536);
+        Data.pridejPriklad("65536+65536");
             assertEquals(131072,        Operation.vyres(Data),0.0);
         
-        Data.pridejPriklad(3.1+6.9);
+        Data.pridejPriklad("3.1+6.9");
             assertEquals(10,            Operation.vyres(Data),0.0);
         
-        Data.pridejPriklad(3.00000001+3.00000001);
+        Data.pridejPriklad("3.00000001+3.00000001");
             assertEquals(6.00000002, 	Operation.vyres(Data),0.0);
         
-        Data.pridejPriklad(62+1322);
+        Data.pridejPriklad("62+1322");
             assertEquals(1384,          Operation.vyres(Data),0.0);
         
-        Data.pridejPriklad(2147483647+2147483647);
-            assertEquals(4294967294,    Operation.vyres(Data),0.0);
+        Data.pridejPriklad("147483647+147483647");
+            assertEquals(294967294,    Operation.vyres(Data),0.0);
         
-        Data.pridejPriklad(4+(-5));
+        Data.pridejPriklad("4+(-5)");
             assertEquals(-1,            Operation.vyres(Data),0.0);
         
-        Data.pridejPriklad((-4)+(-5));
+        Data.pridejPriklad("(-4)+(-5)");
             assertEquals(-9,            Operation.vyres(Data),0.0);
     }
     
     @Test
     public void testsub() 
     {
-        Data.pridejPriklad(1-1);
+        Data.pridejPriklad("1-1");
             assertEquals(0,             Operation.vyres(Data),0.0);
         
-        Data.pridejPriklad(1-9);
+        Data.pridejPriklad("1-9");
             assertEquals(-8,            Operation.vyres(Data),0.0);
         
-        Data.pridejPriklad(6-34);
+        Data.pridejPriklad("6-34");
             assertEquals(-28,           Operation.vyres(Data),0.0);
         
-        Data.pridejPriklad(65536-65536);
+        Data.pridejPriklad("65536-65536");
             assertEquals(0,             Operation.vyres(Data),0.0);
         
-        Data.pridejPriklad(3.1-6.9);
+        Data.pridejPriklad("3.1-6.9");
             assertEquals(-3.8,          Operation.vyres(Data),0.0);
         
-        Data.pridejPriklad(3.00000001-3.00000005);
+        Data.pridejPriklad("3.00000001-3.00000005");
             assertEquals(-0.00000004, 	Operation.vyres(Data), 0.000000009);
         
-        Data.pridejPriklad(1322-62);
+        Data.pridejPriklad("1322-62");
             assertEquals(1260,          Operation.vyres(Data),0.0);
         
-        Data.pridejPriklad(2147483647-(-2147483647));
-            assertEquals(4294967294,    Operation.vyres(Data),0.0);
+        Data.pridejPriklad("147483647-(-147483647)");
+            assertEquals(294967294,    Operation.vyres(Data),0.0);
         
-        Data.pridejPriklad(4-(-5));
+        Data.pridejPriklad("4-(-5)");
             assertEquals(9,             Operation.vyres(Data),0.0);
         
-        Data.pridejPriklad((-4)-(-5));
+        Data.pridejPriklad("(-4)-(-5)");
             assertEquals(1,             Operation.vyres(Data),0.0);
     }
     
     @Test
     public void testdiv() 
     {
-        Data.pridejPriklad(5/0);
+        Data.pridejPriklad("5/0");
             assertEquals(ERROR,         Operation.vyres(Data),0.0);
         
-        Data.pridejPriklad(0/5);
+        Data.pridejPriklad("0/5");
             assertEquals(0,             Operation.vyres(Data),0.0);
         
-        Data.pridejPriklad(0/0);
+        Data.pridejPriklad("0/0");
             assertEquals(ERROR,         Operation.vyres(Data),0.0);
         
-        Data.pridejPriklad(144/12);
+        Data.pridejPriklad("144/12");
             assertEquals(12,            Operation.vyres(Data),0.0);
         
-        Data.pridejPriklad(12/122);
+        Data.pridejPriklad("12/122");
             assertEquals(0.09836066,    Operation.vyres(Data),0.000000009);
         
-        Data.pridejPriklad(5/25);
+        Data.pridejPriklad("5/25");
             assertEquals(0.2,           Operation.vyres(Data),0.0);
         
-        Data.pridejPriklad(25/5);
+        Data.pridejPriklad("25/5");
             assertEquals(5,             Operation.vyres(Data),0.0);
         
-        Data.pridejPriklad((-25)/(-5));
+        Data.pridejPriklad("(-25)/(-5)");
             assertEquals(5,             Operation.vyres(Data),0.0);
         
-        Data.pridejPriklad((-25)/5));
+        Data.pridejPriklad("(-25)/5)");
             assertEquals(-5,            Operation.vyres(Data),0.0);
     }
     
     @Test
     public void testmul() 
     {
-        Data.pridejPriklad(6*5);
+        Data.pridejPriklad("6*5");
             assertEquals(30,            Operation.vyres(Data),0.0);
         
-        Data.pridejPriklad((-5)*5);
+        Data.pridejPriklad("(-5)*5");
             assertEquals(-25,           Operation.vyres(Data),0.0);
         
-        Data.pridejPriklad(5*(-5));
+        Data.pridejPriklad("5*(-5)");
             assertEquals(-25,           Operation.vyres(Data),0.0);
         
-        Data.pridejPriklad(55*52);
+        Data.pridejPriklad("55*52");
             assertEquals(2860,          Operation.vyres(Data),0.0);
         
-        Data.pridejPriklad(666*666);
+        Data.pridejPriklad("666*666");
             assertEquals(443556,        Operation.vyres(Data),0.000000009);
         
-        Data.pridejPriklad(0*5);
+        Data.pridejPriklad("0*5");
             assertEquals(0,             Operation.vyres(Data),0.0);
         
-        Data.pridejPriklad(5*0);
+        Data.pridejPriklad("5*0");
             assertEquals(0,             Operation.vyres(Data),0.0);
         
-        Data.pridejPriklad(0*0);
+        Data.pridejPriklad("0*0");
             assertEquals(0,             Operation.vyres(Data),0.0);
     }
     
     @Test
     public void testpowsingle() 
     {
-        Data.pridejPriklad(5^1);
+        Data.pridejPriklad("5^1");
             assertEquals(5,             Operation.vyres(Data),0.0);
         
-        Data.pridejPriklad(5^2);
+        Data.pridejPriklad("5^2");
             assertEquals(25,            Operation.vyres(Data),0.0);
         
-        Data.pridejPriklad(5^3);
+        Data.pridejPriklad("5^3");
             assertEquals(125,           Operation.vyres(Data),0.0);
         
-        Data.pridejPriklad(5^9);
+        Data.pridejPriklad("5^9");
             assertEquals(1953125,       Operation.vyres(Data),0.0);
         
-        Data.pridejPriklad(5^15);
+        Data.pridejPriklad("5^15");
             assertEquals(30517578125,   Operation.vyres(Data),0.0);
         
-        Data.pridejPriklad(5^(-5));
+        Data.pridejPriklad("5^(-5)");
             assertEquals(0.00032, 	Operation.vyres(Data),0.0);
         
-        Data.pridejPriklad(5^(-4));
+        Data.pridejPriklad("5^(-4)");
             assertEquals(0.0016,        Operation.vyres(Data),0.0);
         
-        Data.pridejPriklad((-5)^(-5));
+        Data.pridejPriklad("(-5)^(-5)");
             assertEquals(-0.00032,      Operation.vyres(Data),0.0);
         
-        Data.pridejPriklad(5^0);
+        Data.pridejPriklad("5^0");
             assertEquals(1,             Operation.vyres(Data),0.0);
         
-        Data.pridejPriklad(1254870^0);
+        Data.pridejPriklad("1254870^0");
             assertEquals(1,             Operation.vyres(Data),0.0);
             
-        Data.pridejPriklad((-5)^0);
+        Data.pridejPriklad("(-5)^0");
             assertEquals(1,             Operation.vyres(Data),0.0);
             
-        Data.pridejPriklad(0^0);
+        Data.pridejPriklad("0^0");
             assertEquals(ERROR,         Operation.vyres(Data),0.0);
     }
     
     @Test
     public void testmod() 
     {
-        Data.pridejPriklad(5%2);
+        Data.pridejPriklad("5%2");
             assertEquals(1,             Operation.vyres(Data),0.0);
         
-        Data.pridejPriklad(2%2);
+        Data.pridejPriklad("2%2");
             assertEquals(0,             Operation.vyres(Data),0.0);
         
-        Data.pridejPriklad(16%4);
+        Data.pridejPriklad("16%4");
             assertEquals(0,             Operation.vyres(Data),0.0);
         
-        Data.pridejPriklad(16%3);
+        Data.pridejPriklad("16%3");
             assertEquals(1,             Operation.vyres(Data),0.0);
         
-        Data.pridejPriklad(12%9);
+        Data.pridejPriklad("12%9");
             assertEquals(3,             Operation.vyres(Data),0.0);
         
-        Data.pridejPriklad(123456%12);
+        Data.pridejPriklad("123456%12");
             assertEquals(0, 	        Operation.vyres(Data), 0.000000009);
         
-        Data.pridejPriklad(120%0);
+        Data.pridejPriklad("120%0");
             assertEquals(ERROR,         Operation.vyres(Data),0.0);
     }
     
     @Test
     public void testerr() 
     {
-        Data.pridejPriklad(5**2);
+        Data.pridejPriklad("5**2");
             assertEquals(ERROR,         Operation.vyres(Data),0.0);
         
-        Data.pridejPriklad(2*/2);
+        Data.pridejPriklad("2*/2");
             assertEquals(ERROR,         Operation.vyres(Data),0.0);
         
-        Data.pridejPriklad(16-+4);
+        Data.pridejPriklad("16-+4");
             assertEquals(ERROR,         Operation.vyres(Data),0.0);
         
-        Data.pridejPriklad(/163*6);
+        Data.pridejPriklad("/163*6");
             assertEquals(ERROR,         Operation.vyres(Data),0.0);
         
-        Data.pridejPriklad(12/0);
+        Data.pridejPriklad("12/0");
             assertEquals(ERROR,         Operation.vyres(Data),0.0);
         
-        Data.pridejPriklad(123456%^12);
+        Data.pridejPriklad("123456%^12");
             assertEquals(ERROR, 	Operation.vyres(Data),0.0);
         
-        Data.pridejPriklad();
+        Data.pridejPriklad("");
             assertEquals(ERROR,         Operation.vyres(Data),0.0);
         
-        Data.pridejPriklad(*);
+        Data.pridejPriklad("*");
             assertEquals(ERROR,         Operation.vyres(Data),0.0);
         
-        Data.pridejPriklad(**);
+        Data.pridejPriklad("**");
             assertEquals(ERROR,         Operation.vyres(Data),0.0);
         
-        Data.pridejPriklad(+-*);
+        Data.pridejPriklad("+-*");
             assertEquals(ERROR,         Operation.vyres(Data),0.0);
             
-        Data.pridejPriklad(a);
+        Data.pridejPriklad("a");
             assertEquals(ERROR,         Operation.vyres(Data),0.0);
             
-        Data.pridejPriklad(a+b);
+        Data.pridejPriklad("a+b");
             assertEquals(ERROR,         Operation.vyres(Data),0.0);
             
-        Data.pridejPriklad(<|>);
+        Data.pridejPriklad("<|>");
             assertEquals(ERROR,         Operation.vyres(Data),0.0);
         
-        Data.pridejPriklad(^>^>^);
+        Data.pridejPriklad("^>^>^");
             assertEquals(ERROR,         Operation.vyres(Data),0.0);
         
-        Data.pridejPriklad(toto+je);
+        Data.pridejPriklad("toto+je");
             assertEquals(ERROR,         Operation.vyres(Data),0.0);
         
-        Data.pridejPriklad(1 + 1);
+        Data.pridejPriklad("1 + 1");
             assertEquals(ERROR,         Operation.vyres(Data),0.0);
         
-        Data.pridejPriklad( );
+        Data.pridejPriklad(" ");
             assertEquals(ERROR,         Operation.vyres(Data),0.0);
         
-        Data.pridejPriklad(ěšč);
+        Data.pridejPriklad("ěšč");
             assertEquals(ERROR, 	Operation.vyres(Data),0.0);
         
-        Data.pridejPriklad(##$$);
+        Data.pridejPriklad("##$$");
             assertEquals(ERROR,         Operation.vyres(Data),0.0);
         
         Data.pridejPriklad("&#%$");
             assertEquals(ERROR,         Operation.vyres(Data),0.0);
         
-        Data.pridejPriklad(;);
+        Data.pridejPriklad(";");
             assertEquals(ERROR,         Operation.vyres(Data),0.0);
         
-        Data.pridejPriklad($1+$2);
+        Data.pridejPriklad("$1+$2");
             assertEquals(ERROR,         Operation.vyres(Data),0.0);
             
-        Data.pridejPriklad(1+2+3);
+        Data.pridejPriklad("1+2+3");
             assertEquals(ERROR,         Operation.vyres(Data),0.0);
             
-        Data.pridejPriklad(.);
+        Data.pridejPriklad(".");
             assertEquals(ERROR,         Operation.vyres(Data),0.0);
             
-        Data.pridejPriklad((-.)*54);
+        Data.pridejPriklad("(-.)*54");
             assertEquals(ERROR,         Operation.vyres(Data),0.0);
         
-        Data.pridejPriklad(i++);
+        Data.pridejPriklad("i++");
             assertEquals(ERROR,         Operation.vyres(Data),0.0);
         
-        Data.pridejPriklad(j=20);
+        Data.pridejPriklad("j=20");
             assertEquals(ERROR,         Operation.vyres(Data),0.0);
         
         Data.pridejPriklad("break");
@@ -330,13 +332,13 @@ public class operationTest {
         Data.pridejPriklad("return 1");
             assertEquals(ERROR,         Operation.vyres(Data),0.0);
         
-        Data.pridejPriklad(NULL);
+        Data.pridejPriklad("NULL");
             assertEquals(ERROR,         Operation.vyres(Data),0.0);
         
-        Data.pridejPriklad(INF);
+        Data.pridejPriklad("INF");
             assertEquals(ERROR,         Operation.vyres(Data),0.0);
             
-        Data.pridejPriklad(INF-INF);
+        Data.pridejPriklad("INF-INF");
             assertEquals(ERROR,         Operation.vyres(Data),0.0);
     }
 
