@@ -29,6 +29,9 @@ public class operation {
         char operace = 'n';//tam bude znak operace
         String cislo;
         int i=0;
+        if (priklad.length() < 2){
+            return NaN;
+        }            
         for (i=1;i<=(priklad.length()-1);i++){
             if((((priklad.charAt(i) < '0') || (priklad.charAt(i) > '9'))) && (priklad.charAt(i) != '.')){
                 cislo = priklad.substring(0, i);
@@ -50,7 +53,6 @@ public class operation {
             //e.printStackTrace();
             c2 = NaN;
         }
-        
         if ((!Double.isNaN(c1)) && (!Double.isNaN(c2))) {
             switch (operace){
                 case '+':
@@ -70,6 +72,9 @@ public class operation {
                     break;
                 case '%':
                     vysledek = modulo(c1, c2);
+                    break;
+                case '!':
+                    vysledek = faktorial(c1);
                     break;
                 default:
                     vysledek = NaN;
@@ -157,6 +162,20 @@ public class operation {
         }
         else{
             vysledek = cislo1 % cislo2;
+        }
+        return vysledek;
+    }
+    private double faktorial(double cislo1){
+        double vysledek;
+        if ((cislo1 < 0) || ((cislo1%1) != 0)){
+            vysledek = NaN;
+        }
+        else{
+            vysledek = 1;
+            while(cislo1 != 0){
+                vysledek *= cislo1;
+                cislo1--;
+            }
         }
         return vysledek;
     }
