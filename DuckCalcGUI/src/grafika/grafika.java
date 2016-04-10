@@ -9,9 +9,11 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 /**
- *
- * @author pavel
+ * Class grafika is child of JFrame. 
+ * @author RDDG
+ * 
  */
+
 public class grafika extends JFrame{
     JPanel zakladni=new JPanel();     //vytvoreni zakladniho grafickeho panelu
     Container kont=getContentPane();  //vytvoreni grafickeho kontejnrtu
@@ -42,6 +44,8 @@ public class grafika extends JFrame{
     JTextField displejPriklad=new JTextField(20);
     JTextField displejVysledek=new JTextField(20);
     
+/** grafika() is constructor, it implements base setting of windows. 
+*/
     public grafika(){
         super("kalkulacka");
         setSize(300, 300);
@@ -49,7 +53,12 @@ public class grafika extends JFrame{
         setVisible(true);
         vykresli();
     }
-    
+/** 
+*   vykeresli() is privat void method without parametrs. 
+*   vykresli() is called from constructor grafika() and it displays all buttons, displays etc.
+* 
+*/
+        
     private void vykresli(){
         /*** nastavi velikost zakladniho tlacitka ***/
         Dimension velikostTlacitka=new Dimension(50, 25);
@@ -65,7 +74,7 @@ public class grafika extends JFrame{
     
     /*** nasazeni tlacitek a displeju do JPanel zakladni ***/
         
-    /** JTextField pro priklad **/    
+    /* JTextField pro priklad **/    
         zakladniPanelLayoutConstraint.gridx=0;
         zakladniPanelLayoutConstraint.gridy=0;
         zakladniPanelLayoutConstraint.gridwidth=5;
@@ -73,12 +82,12 @@ public class grafika extends JFrame{
         displejPriklad.setEditable(false);   //zakaza klikatelnost kurzoru
         zakladni.add(displejPriklad, zakladniPanelLayoutConstraint);
     
-    /** JTextField pro vysledek **/
+    /*JTextField pro vysledek **/
         zakladniPanelLayoutConstraint.gridy=1;
         displejVysledek.setEditable(false);
         zakladni.add(displejVysledek, zakladniPanelLayoutConstraint);
     
-    /** tlacitko 1**/
+    /* tlacitko 1**/
         tl1.setPreferredSize(velikostTlacitka);
         zakladniPanelLayoutConstraint.gridx = 0;
         zakladniPanelLayoutConstraint.gridy = 2;
@@ -90,7 +99,7 @@ public class grafika extends JFrame{
         });
         zakladni.add(tl1, zakladniPanelLayoutConstraint);
     
-    /** tlacitko 2**/
+    /* tlacitko 2**/
         tl2.setPreferredSize(velikostTlacitka);
         zakladniPanelLayoutConstraint.gridx=1;
         tl2.addActionListener(new ActionListener(){
@@ -100,7 +109,7 @@ public class grafika extends JFrame{
         });
         zakladni.add(tl2, zakladniPanelLayoutConstraint);
     
-    /** tlacitko 3**/
+    /* tlacitko 3**/
         tl3.setPreferredSize(velikostTlacitka);
         zakladniPanelLayoutConstraint.gridx=2;
         zakladni.add(tl3, zakladniPanelLayoutConstraint);
@@ -110,7 +119,7 @@ public class grafika extends JFrame{
                 }
         });
         
-    /** tlacitko +**/
+    /* tlacitko +**/
         tlPlus.setPreferredSize(velikostTlacitka);
         zakladniPanelLayoutConstraint.gridx=3;
         zakladni.add(tlPlus, zakladniPanelLayoutConstraint);
@@ -120,7 +129,7 @@ public class grafika extends JFrame{
                 }
         });
         
-    /** tlacitko -**/
+    /* tlacitko -**/
         tlMinus.setPreferredSize(velikostTlacitka);
         zakladniPanelLayoutConstraint.gridx=4;
         zakladni.add(tlMinus, zakladniPanelLayoutConstraint);
@@ -130,7 +139,7 @@ public class grafika extends JFrame{
                 }
         });
         
-    /** tlacitko 4**/
+    /* tlacitko 4**/
         tl4.setPreferredSize(velikostTlacitka);
         zakladniPanelLayoutConstraint.gridx=0;
         zakladniPanelLayoutConstraint.gridy=3;
@@ -141,7 +150,7 @@ public class grafika extends JFrame{
                 }
         });
     
-    /** tlacitko 5**/
+    /* tlacitko 5**/
         tl5.setPreferredSize(velikostTlacitka);
         zakladniPanelLayoutConstraint.gridx=1;
         zakladni.add(tl5, zakladniPanelLayoutConstraint);
@@ -151,7 +160,7 @@ public class grafika extends JFrame{
                 }
         });
         
-    /** tlacitko 6**/
+    /* tlacitko 6**/
         tl6.setPreferredSize(velikostTlacitka);
         zakladniPanelLayoutConstraint.gridx=2;
         zakladni.add(tl6, zakladniPanelLayoutConstraint);
@@ -161,7 +170,7 @@ public class grafika extends JFrame{
                 }
         });
         
-    /** tlacitko * **/
+    /* tlacitko * **/
         tlKrat.setPreferredSize(velikostTlacitka);
         zakladniPanelLayoutConstraint.gridx=3;
         zakladni.add(tlKrat, zakladniPanelLayoutConstraint);
@@ -171,7 +180,7 @@ public class grafika extends JFrame{
                 }
         });
 
-    /** tlacitko / **/
+    /*tlacitko / **/
         tlDeleno.setPreferredSize(velikostTlacitka);
         zakladniPanelLayoutConstraint.gridx=4;
         zakladni.add(tlDeleno, zakladniPanelLayoutConstraint);
@@ -181,7 +190,7 @@ public class grafika extends JFrame{
                 }
         });
         
-    /** tlacitko 7**/
+    /* tlacitko 7**/
         tl7.setPreferredSize(velikostTlacitka);
         zakladniPanelLayoutConstraint.gridx=0;
         zakladniPanelLayoutConstraint.gridy=4;
@@ -192,7 +201,7 @@ public class grafika extends JFrame{
                 }
         });
         
-    /** tlacitko 8**/
+    /* tlacitko 8**/
         tl8.setPreferredSize(velikostTlacitka);
         zakladniPanelLayoutConstraint.gridx=1;
         zakladni.add(tl8, zakladniPanelLayoutConstraint);
@@ -202,7 +211,7 @@ public class grafika extends JFrame{
                 }
         });
     
-    /** tlacitko 9**/
+    /* tlacitko 9**/
         tl9.setPreferredSize(velikostTlacitka);
         zakladniPanelLayoutConstraint.gridx=2;
         zakladni.add(tl9, zakladniPanelLayoutConstraint);
@@ -211,8 +220,8 @@ public class grafika extends JFrame{
                 pridejHodnotu(e);
                 }
         });
-        
-    /** tlacitko %**/
+       
+    /* tlacitko %**/
         tlModulo.setPreferredSize(velikostTlacitka);
         zakladniPanelLayoutConstraint.gridx=3;
         zakladni.add(tlModulo, zakladniPanelLayoutConstraint);
@@ -222,7 +231,7 @@ public class grafika extends JFrame{
                 }
         });
     
-    /** tlacitko ^**/
+    /* tlacitko ^**/
         tlMocnina.setPreferredSize(velikostTlacitka);
         zakladniPanelLayoutConstraint.gridx=4;
         //zakladniPanelLayoutConstraint.gridy=5;
@@ -234,7 +243,7 @@ public class grafika extends JFrame{
                 }
         });
         
-    /** tlacitko =**/
+    /* tlacitko =**/
         tlRovnase.setPreferredSize(velikostTlacitka);
         zakladniPanelLayoutConstraint.gridx=4;
         zakladniPanelLayoutConstraint.gridy=5;
@@ -242,7 +251,7 @@ public class grafika extends JFrame{
        
         zakladni.add(tlRovnase, zakladniPanelLayoutConstraint);
     
-    /** tlacitko C**/
+    /* tlacitko C**/
         tlClear.setPreferredSize(velikostTlacitka);
         zakladniPanelLayoutConstraint.gridwidth=1;
         zakladniPanelLayoutConstraint.gridx=0;
@@ -254,7 +263,7 @@ public class grafika extends JFrame{
                 }
         });
         
-    /** tlacitko 0**/
+    /* tlacitko 0**/
         tl0.setPreferredSize(velikostTlacitka);
         zakladniPanelLayoutConstraint.gridx=1;
         zakladni.add(tl0, zakladniPanelLayoutConstraint);
@@ -264,7 +273,7 @@ public class grafika extends JFrame{
                 }
         });
         
-    /** tlacitko , **/
+    /* tlacitko , **/
         tlDes.setPreferredSize(velikostTlacitka);
         zakladniPanelLayoutConstraint.gridx=2;
         zakladni.add(tlDes, zakladniPanelLayoutConstraint);
@@ -274,7 +283,7 @@ public class grafika extends JFrame{
                 }
         });
         
-    /** tlacitko ! **/
+    /*tlacitko ! **/
         tlFact.setPreferredSize(velikostTlacitka);
         zakladniPanelLayoutConstraint.gridx=3;
         zakladni.add(tlFact, zakladniPanelLayoutConstraint);
@@ -283,7 +292,7 @@ public class grafika extends JFrame{
                 pridejHodnotu(e);
                 }
         });
-    /*** vlozeni zakladniho JPanelu do kontejnetu a zobrazeni kontejneru ***/    
+    /* vlozeni zakladniho JPanelu do kontejnetu a zobrazeni kontejneru ***/    
         kont.add(zakladni, kontDefault.CENTER);
         setContentPane(kont);
     }
@@ -293,9 +302,23 @@ public class grafika extends JFrame{
         displejPriklad.setText(priklad+e.getActionCommand());
     }
     
+/**
+*   vypis() is public String method to return math example from display.
+*   @return priklad is String. In priklad is math example for solve
+* 
+*/
     public String vypis(){
         priklad=displejPriklad.getText();
         //System.out.print(priklad);
         return priklad;
+    }
+    
+/**
+*  pridejVysledek(String) is public void method to show solved math example on display.
+*  @param vysledek vysledek is String
+* 
+*/
+    public void pridejVysledek(String vysledek){
+        displejVysledek.setText(vysledek);
     }
 }
