@@ -28,6 +28,7 @@ public class DuckCalc {
             public void actionPerformed(ActionEvent e){
                 Data.pridejPriklad(GUI.vypis());
                 Data.pridejVysledek(Operation.vyres(Data));
+                GUI.pridejVysledek(Data.vypisPosledniVysledek());
                 System.out.print("\n"+Data.vypisPosledniVysledek());
                 }
         }); 

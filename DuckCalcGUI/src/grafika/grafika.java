@@ -318,7 +318,8 @@ public class grafika extends JFrame{
 *  @param vysledek vysledek is String
 * 
 */
-    public void pridejVysledek(String vysledek){
-        displejVysledek.setText(vysledek);
+    public void pridejVysledek(double vysledek){
+        String p=""+vysledek;
+        displejVysledek.setText(p);
     }
 }
