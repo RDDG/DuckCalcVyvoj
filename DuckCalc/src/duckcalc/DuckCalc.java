@@ -29,7 +29,12 @@ public class DuckCalc {
                 Data.pridejPriklad(GUI.vypis());
             /*když se zakomentuje následující řádek, tak to funguje */  
                 Data.pridejVysledek(Operation.vyres(Data));
+<<<<<<< HEAD
                 System.out.print("\n"+Data.vypisPosledniPriklad());
+=======
+                GUI.pridejVysledek(Data.vypisPosledniVysledek());
+                System.out.print("\n"+Data.vypisPosledniVysledek());
+>>>>>>> gui
                 }
         }); 
         
