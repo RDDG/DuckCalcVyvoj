@@ -31,7 +31,9 @@ public class data {
     public String vypisPosledniPriklad(){
         if ((Polozka != null) && (!Polozka.isEmpty())) {
             p = Polozka.get(Polozka.size()-1);
-            String priklad = p.priklad;
+        /* vytvaris si lokalni promennou priklad, ale returnuje se priklad ktery je globalni
+            String priklad = p.priklad;*/
+            priklad = p.priklad;
         }
         return priklad;
     }
