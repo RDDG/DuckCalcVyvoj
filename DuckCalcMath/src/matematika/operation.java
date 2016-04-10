@@ -82,15 +82,17 @@ public class operation {
         if(!Double.isNaN(vysledek)){
             System.out.print(vysledek+"\n");
             String pomocny=""+vysledek;
+            if(pomocny.indexOf('E')==-1){
             System.out.print(pomocny+"\n");
             int tecka=pomocny.indexOf('.');
-            if((tecka+9)>pomocny.length()){
-                for(int j=tecka; j<tecka+9; j++){
+           if((tecka+9)>pomocny.length()){
+                for(int j=tecka; j<tecka+12; j++){
                     pomocny=pomocny+"0";
                 }
-            }
+           }
             System.out.print(pomocny+"\n");
             tecka=tecka+9;
+            if((tecka+2)<=pomocny.length()){
             int zaokrouhli=Integer.parseInt(pomocny.substring(tecka, tecka+1));
             int z=Integer.parseInt(pomocny.substring(tecka+1, tecka+2));
             if(z>4 && z<=9){
@@ -100,7 +102,8 @@ public class operation {
             pomocny=pomocny+zaokrouhli;
             System.out.print(pomocny+"\n");
             vysledek=Double.parseDouble(pomocny);
-            System.out.print(vysledek+"\n");
+            System.out.print(vysledek+"\n");}
+            }
         }
      /*   DecimalFormat df = new DecimalFormat("#.#########");
        try{
