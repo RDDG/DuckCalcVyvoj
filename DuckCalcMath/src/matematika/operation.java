@@ -6,6 +6,7 @@
 package matematika;
 
 import static java.lang.Double.*;
+import java.text.DecimalFormat;
 
 /**
  *
@@ -78,7 +79,12 @@ public class operation {
         else{
             vysledek = NaN;
         }
-        
+        DecimalFormat df = new DecimalFormat("#.########");
+        try{
+            vysledek = Double.valueOf(df.format(vysledek));
+        } catch (Exception e) {
+            vysledek = NaN;
+        }
         return vysledek;
     }
     
