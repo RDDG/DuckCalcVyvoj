@@ -51,6 +51,12 @@ public class grafika extends JFrame{
     }
     
     private void vykresli(){
+        
+    }
     
+    public String vypis(){
+        priklad=displejPriklad.getText();
+        System.out.print(priklad);
+        return priklad;
     }
 }
