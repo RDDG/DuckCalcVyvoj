@@ -84,6 +84,12 @@ public class operation {
         else{
             vysledek = NaN;
         }
+<<<<<<< HEAD
+        DecimalFormat df = new DecimalFormat("#.#########");
+        try{
+            vysledek = Double.valueOf(df.format(vysledek));
+        } catch (Exception e) {
+=======
         if(!Double.isNaN(vysledek)){
             //System.out.print(vysledek+"\n");
             String pomocny=""+vysledek;
@@ -114,10 +120,9 @@ public class operation {
         
          //   vysledek = Double.valueOf(df.format(vysledek));
        } catch (Exception e) {
+>>>>>>> e833093ce043d43e0ea10ec8bb41da0c3a66101d
             vysledek = NaN;
         }
-        
-        System.out.print(vysledek+"\n");*/
         return vysledek;
     }
     
