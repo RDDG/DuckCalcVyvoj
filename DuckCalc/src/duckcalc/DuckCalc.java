@@ -26,8 +26,9 @@ public class DuckCalc {
         GUI.tlRovnase.addActionListener(new ActionListener (){ //pridani posluchace tlacitka pomoci anonzmni metody
             public void actionPerformed(ActionEvent e){
                 Data.pridejPriklad(GUI.vypis());
+            /*když se zakomentuje následující řádek, tak to funguje */  
                 Data.pridejVysledek(Operation.vyres(Data));
-                System.out.print("\n"+Data.vypisPosledniVysledek());
+                System.out.print("\n"+Data.vypisPosledniPriklad());
                 }
         }); 
         
