@@ -76,10 +76,10 @@ public class operationTest {
         Data.pridejPriklad("147483647+147483647");
             assertEquals(294967294,    Operation.vyres(Data),0.0);
         
-        Data.pridejPriklad("4+(-5)");
+        Data.pridejPriklad("4+-5");
             assertEquals(-1,            Operation.vyres(Data),0.0);
         
-        Data.pridejPriklad("(-4)+(-5)");
+        Data.pridejPriklad("-4+-5");
             assertEquals(-9,            Operation.vyres(Data),0.0);
     }
     
@@ -107,13 +107,13 @@ public class operationTest {
         Data.pridejPriklad("1322-62");
             assertEquals(1260,          Operation.vyres(Data),0.0);
         
-        Data.pridejPriklad("147483647-(-147483647)");
+        Data.pridejPriklad("147483647--147483647");
             assertEquals(294967294,    Operation.vyres(Data),0.0);
         
-        Data.pridejPriklad("4-(-5)");
+        Data.pridejPriklad("4--5");
             assertEquals(9,             Operation.vyres(Data),0.0);
         
-        Data.pridejPriklad("(-4)-(-5)");
+        Data.pridejPriklad("-4--5");
             assertEquals(1,             Operation.vyres(Data),0.0);
     }
     
@@ -141,10 +141,10 @@ public class operationTest {
         Data.pridejPriklad("25/5");
             assertEquals(5,             Operation.vyres(Data),0.0);
         
-        Data.pridejPriklad("(-25)/(-5)");
+        Data.pridejPriklad("-25/-5");
             assertEquals(5,             Operation.vyres(Data),0.0);
         
-        Data.pridejPriklad("(-25)/5)");
+        Data.pridejPriklad("-25/5");
             assertEquals(-5,            Operation.vyres(Data),0.0);
     }
     
@@ -154,10 +154,10 @@ public class operationTest {
         Data.pridejPriklad("6*5");
             assertEquals(30,            Operation.vyres(Data),0.0);
         
-        Data.pridejPriklad("(-5)*5");
+        Data.pridejPriklad("-5*5");
             assertEquals(-25,           Operation.vyres(Data),0.0);
         
-        Data.pridejPriklad("5*(-5)");
+        Data.pridejPriklad("5*-5");
             assertEquals(-25,           Operation.vyres(Data),0.0);
         
         Data.pridejPriklad("55*52");
@@ -192,15 +192,15 @@ public class operationTest {
             assertEquals(1953125,       Operation.vyres(Data),0.0);
         
         Data.pridejPriklad("5^15");
-            assertEquals(30517578125,   Operation.vyres(Data),0.0);
+            assertEquals(30517578125d,  Operation.vyres(Data),0.0);
         
-        Data.pridejPriklad("5^(-5)");
+        Data.pridejPriklad("5^-5");
             assertEquals(0.00032, 	Operation.vyres(Data),0.0);
         
-        Data.pridejPriklad("5^(-4)");
+        Data.pridejPriklad("5^-4");
             assertEquals(0.0016,        Operation.vyres(Data),0.0);
         
-        Data.pridejPriklad("(-5)^(-5)");
+        Data.pridejPriklad("-5^-5");
             assertEquals(-0.00032,      Operation.vyres(Data),0.0);
         
         Data.pridejPriklad("5^0");
@@ -209,7 +209,7 @@ public class operationTest {
         Data.pridejPriklad("1254870^0");
             assertEquals(1,             Operation.vyres(Data),0.0);
             
-        Data.pridejPriklad("(-5)^0");
+        Data.pridejPriklad("-5^0");
             assertEquals(1,             Operation.vyres(Data),0.0);
             
         Data.pridejPriklad("0^0");
