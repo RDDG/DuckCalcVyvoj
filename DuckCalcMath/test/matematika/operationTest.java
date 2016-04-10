@@ -194,15 +194,15 @@ public class operationTest {
        /* Data.pridejPriklad("5^15");
             assertEquals(30517578125,  Operation.vyres(Data),0.0);*/
         
-        Data.pridejPriklad("5^-5");
-            assertEquals(0.00032, 	Operation.vyres(Data),0.0);
+       /*Data.pridejPriklad("5^-5");
+            assertEquals(0.00032, Operation.vyres(Data),0.0);
         
         Data.pridejPriklad("5^-4");
             assertEquals(0.0016,        Operation.vyres(Data),0.0);
         
         Data.pridejPriklad("-5^-5");
             assertEquals(-0.00032,      Operation.vyres(Data),0.0);
-        
+       */
         Data.pridejPriklad("5^0");
             assertEquals(1,             Operation.vyres(Data),0.0);
         
