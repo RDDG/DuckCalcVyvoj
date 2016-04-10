@@ -80,17 +80,17 @@ public class operation {
             vysledek = NaN;
         }
         if(!Double.isNaN(vysledek)){
-            System.out.print(vysledek+"\n");
+            //System.out.print(vysledek+"\n");
             String pomocny=""+vysledek;
             if(pomocny.indexOf('E')==-1){
-            System.out.print(pomocny+"\n");
+           // System.out.print(pomocny+"\n");
             int tecka=pomocny.indexOf('.');
            if((tecka+9)>pomocny.length()){
                 for(int j=tecka; j<tecka+12; j++){
                     pomocny=pomocny+"0";
                 }
            }
-            System.out.print(pomocny+"\n");
+           // System.out.print(pomocny+"\n");
             tecka=tecka+9;
             if((tecka+2)<=pomocny.length()){
             int zaokrouhli=Integer.parseInt(pomocny.substring(tecka, tecka+1));
@@ -100,15 +100,14 @@ public class operation {
             }
             pomocny=pomocny.substring(0, tecka);
             pomocny=pomocny+zaokrouhli;
-            System.out.print(pomocny+"\n");
-            vysledek=Double.parseDouble(pomocny);
-            System.out.print(vysledek+"\n");}
+           // System.out.print(pomocny+"\n");
+            vysledek=Double.parseDouble(pomocny);}
             }
         }
      /*   DecimalFormat df = new DecimalFormat("#.#########");
        try{
         
-            vysledek = Double.valueOf(df.format(vysledek));
+         //   vysledek = Double.valueOf(df.format(vysledek));
        } catch (Exception e) {
             vysledek = NaN;
         }
