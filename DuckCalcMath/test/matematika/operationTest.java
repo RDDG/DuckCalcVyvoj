@@ -5,6 +5,7 @@
  */
 package matematika;
 
+import static java.lang.Double.NaN;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -19,6 +20,7 @@ import static org.junit.Assert.*;
 public class operationTest {
     data Data;
     operation Operation;
+    double ERROR=NaN;
     public operationTest() {
     }
     
