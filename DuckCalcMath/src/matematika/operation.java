@@ -79,38 +79,12 @@ public class operation {
         else{
             vysledek = NaN;
         }
-        if(!Double.isNaN(vysledek)){
-            System.out.print(vysledek+"\n");
-            String pomocny=""+vysledek;
-            System.out.print(pomocny+"\n");
-            int tecka=pomocny.indexOf('.');
-            if((tecka+9)>pomocny.length()){
-                for(int j=tecka; j<tecka+9; j++){
-                    pomocny=pomocny+"0";
-                }
-            }
-            System.out.print(pomocny+"\n");
-            tecka=tecka+9;
-            int zaokrouhli=Integer.parseInt(pomocny.substring(tecka, tecka+1));
-            int z=Integer.parseInt(pomocny.substring(tecka+1, tecka+2));
-            if(z>4 && z<=9){
-                zaokrouhli++;
-            }
-            pomocny=pomocny.substring(0, tecka);
-            pomocny=pomocny+zaokrouhli;
-            System.out.print(pomocny+"\n");
-            vysledek=Double.parseDouble(pomocny);
-            System.out.print(vysledek+"\n");
-        }
-     /*   DecimalFormat df = new DecimalFormat("#.#########");
-       try{
-        
+        DecimalFormat df = new DecimalFormat("#.#########");
+        try{
             vysledek = Double.valueOf(df.format(vysledek));
-       } catch (Exception e) {
+        } catch (Exception e) {
             vysledek = NaN;
         }
-        
-        System.out.print(vysledek+"\n");*/
         return vysledek;
     }
     
