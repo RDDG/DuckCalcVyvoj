@@ -5,7 +5,7 @@
  */
 package matematika;
 
-import static java.lang.Double.NaN;
+import static java.lang.Double.*;
 
 /**
  *
@@ -26,6 +26,30 @@ public class operation {
         double c1 = 42;     //tam bude prvni cislo
         double c2 = 42;     //tam bude druhe cislo
         char operace = 'n';//tam bude znak operace
+        String cislo;
+        int i=0;
+        for (i=1;i<=(priklad.length()-1);i++){
+            if((((priklad.charAt(i) < '0') || (priklad.charAt(i) > '9'))) && (priklad.charAt(i) != '.')){
+                cislo = priklad.substring(0, i);
+                try{
+                    c1 = Double.parseDouble(cislo);
+                } catch (Exception e) {
+                    //e.printStackTrace();
+                    c1 = NaN;
+                }
+                break;
+            }
+        }
+        operace = priklad.charAt(i);
+        i++;
+        cislo = priklad.substring(i, priklad.length());
+        try{
+            c2 = Double.parseDouble(cislo);
+        } catch (Exception e) {
+            //e.printStackTrace();
+            c2 = NaN;
+        }
+        
         if ((!Double.isNaN(c1)) && (!Double.isNaN(c2))) {
             switch (operace){
                 case '+':
@@ -45,6 +69,9 @@ public class operation {
                     break;
                 case '%':
                     vysledek = modulo(c1, c2);
+                    break;
+                default:
+                    vysledek = NaN;
                     break;
             }
         }
