@@ -164,7 +164,7 @@ public class operationTest {
             assertEquals(2860,          Operation.vyres(Data),0.0);
         
         Data.pridejPriklad("666*666");
-            assertEquals(443556,        Operation.vyres(Data),0.000000009);
+            assertEquals(443556,        Operation.vyres(Data),0.0);
         
         Data.pridejPriklad("0*5");
             assertEquals(0,             Operation.vyres(Data),0.0);
@@ -190,19 +190,7 @@ public class operationTest {
         
         Data.pridejPriklad("5^9");
             assertEquals(1953125,       Operation.vyres(Data),0.0);
-        
-       /* Data.pridejPriklad("5^15");
-            assertEquals(30517578125,  Operation.vyres(Data),0.0);*/
-        
-       /*Data.pridejPriklad("5^-5");
-            assertEquals(0.00032, Operation.vyres(Data),0.0);
-        
-        Data.pridejPriklad("5^-4");
-            assertEquals(0.0016,        Operation.vyres(Data),0.0);
-        
-        Data.pridejPriklad("-5^-5");
-            assertEquals(-0.00032,      Operation.vyres(Data),0.0);
-       */
+     
         Data.pridejPriklad("5^0");
             assertEquals(1,             Operation.vyres(Data),0.0);
         
@@ -235,9 +223,46 @@ public class operationTest {
             assertEquals(3,             Operation.vyres(Data),0.0);
         
         Data.pridejPriklad("123456%12");
-            assertEquals(0, 	        Operation.vyres(Data), 0.000000009);
+            assertEquals(0, 	        Operation.vyres(Data),0.0);
         
         Data.pridejPriklad("120%0");
+            assertEquals(ERROR,         Operation.vyres(Data),0.0);
+    }
+    
+    @Test
+    public void testfakt() 
+    {
+        Data.pridejPriklad("5!");
+            assertEquals(120,           Operation.vyres(Data),0.0);
+        
+        Data.pridejPriklad("2!");
+            assertEquals(2,             Operation.vyres(Data),0.0);
+        
+        Data.pridejPriklad("0!");
+            assertEquals(1,             Operation.vyres(Data),0.0);
+        
+        Data.pridejPriklad("15!");
+            assertEquals(1307674368000d,Operation.vyres(Data),0.0);
+        
+        Data.pridejPriklad("!1");
+            assertEquals(ERROR,         Operation.vyres(Data),0.0);
+        
+        Data.pridejPriklad("7!");
+            assertEquals(5040,          Operation.vyres(Data),0.0);
+        
+        Data.pridejPriklad("10!!");
+            assertEquals(ERROR,         Operation.vyres(Data),0.0);
+        
+        Data.pridejPriklad("-10!");
+            assertEquals(ERROR,         Operation.vyres(Data),0.0);
+        
+        Data.pridejPriklad("-!");
+            assertEquals(ERROR,         Operation.vyres(Data),0.0);
+            
+        Data.pridejPriklad("10000000000000!"); //přeteče double
+            assertEquals(ERROR,         Operation.vyres(Data),0.0);
+            
+        Data.pridejPriklad("!");
             assertEquals(ERROR,         Operation.vyres(Data),0.0);
     }
     
@@ -341,6 +366,18 @@ public class operationTest {
             assertEquals(ERROR,         Operation.vyres(Data),0.0);
             
         Data.pridejPriklad("INF-INF");
+            assertEquals(ERROR,         Operation.vyres(Data),0.0);
+            
+        Data.pridejPriklad("MIN_VALUE");
+            assertEquals(ERROR,         Operation.vyres(Data),0.0);
+            
+        Data.pridejPriklad("NaN+3");
+            assertEquals(ERROR,         Operation.vyres(Data),0.0);
+            
+        Data.pridejPriklad("MIN_NORMAL");
+            assertEquals(ERROR,         Operation.vyres(Data),0.0);
+            
+        Data.pridejPriklad("NEGATIVE_INFINITY*2");
             assertEquals(ERROR,         Operation.vyres(Data),0.0);
     }
 
