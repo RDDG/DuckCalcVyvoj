@@ -47,7 +47,7 @@ public class grafika extends JFrame{
 /** grafika() is constructor, it implements base setting of windows. 
 */
     public grafika(){
-        super("kalkulacka");
+        super("DuckCalc RDDG");
         setSize(300, 300);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setVisible(true);
