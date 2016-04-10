@@ -1,0 +1,144 @@
+// Návrh testů a jejich jednotlivých assertů
+// Autor: RDDG
+// Datum: 6.4.2015
+// Popis: Nejedná se o hotové testy, pouze o návrh jednotlyvých assertů pro dané testy, je nutné se domluvit na rozhraní.
+
+// !!! NUTNÉ NAHRADIT myClass SKUTEČNÝM ROZHRANÍM PRO VOLÁNÍ MATEMATICKÝCH FUNKCÍ NAŠÍ KALKULAČKY !!!
+
+// testadd 		>> testy pro sčítání
+// testsub 		>> testy pro odečítání 
+// testmul 		>> testy pro násobení
+// testdiv 		>> testy pro dělení 
+// testpowsingle 	>> testy pro mocninu
+// testpowall 		>> testy pro počítání s mocninami
+// testmod 		>> testy pro modulo
+// testerr 		>> testy problémových stavů
+
+// testy jsou dělány na max 8 desetinných míst
+// * 	> násobení
+// / 	> dělení
+// + 	> sčítání
+// - 	> odečítání
+// % 	> modulo
+// ^ 	> mocnina
+// () 	> oddělení záporného čísla
+// error > označuje nedovolenou operaci
+
+
+
+
+@Test
+public void testadd() 
+{
+    assertEquals(2, 		myClass(1+1));
+    assertEquals(10, 		myClass(1+9));
+    assertEquals(40, 		myClass(6+34));
+    assertEquals(1310720, 	myClass(65536+65536));
+    assertEquals(10, 		myClass(3.1+6.9));
+    assertEquals(6.00000002, 	myClass(3.00000001+3.00000001));
+    assertEquals(1384, 	myClass(62+1322));
+    assertEquals(4294967294, 	myClass(2147483647+2147483647));
+    assertEquals(-1, 		myClass(4+(-5)));
+    assertEquals(-9, 		myClass((-4)+(-5)));
+}
+
+@Test
+public void testsub() 
+{
+    assertEquals(0, 		myClass(1-1));
+    assertEquals(-8, 		myClass(1-9));
+    assertEquals(-28, 		myClass(6-34));
+    assertEquals(0,	 	myClass(65536-65536));
+    assertEquals(-3.8, 		myClass(3.1-6.9));
+    assertEquals(-0.00000005, 	myClass(3.00000001-3.00000005));
+    assertEquals(17388, 	myClass(1322-62));
+    assertEquals(4294967294, 	myClass(2147483647-(-2147483647)));
+    assertEquals(9, 		myClass(4-(-5)));
+    assertEquals(1, 		myClass((-4)-(-5)));
+}
+
+@Test
+public void testdiv() 
+{
+    assertEquals(error, 	myClass(5/0));
+    assertEquals(0, 		myClass(0/5));
+    assertEquals(error, 	myClass(0/0));
+    assertEquals(12,	 	myClass(144/12));
+    assertEquals(12, 		myClass(122/12));
+    assertEquals(0.083333333, 	myClass(12/122));
+    assertEquals(0.2,	 	myClass(5/25));
+    assertEquals(5, 		myClass(25/5));
+    assertEquals(5, 		myClass((-25)/(-5)));
+    assertEquals(-5, 		myClass((-25)/5));
+}
+
+@Test
+public void testmul() 
+{
+    assertEquals(30,	 	myClass(6*5));
+    assertEquals(-25, 		myClass((-5)*5));
+    assertEquals(-25, 		myClass(5*(-5)));
+    assertEquals(78125,	 	myClass(55*52));
+    assertEquals(443556, 	myClass(666*666));
+    assertEquals(0, 		myClass(0*5));
+    assertEquals(0,	 	myClass(5*0));
+    assertEquals(0, 		myClass(0*0));
+}
+
+@Test
+public void testpowsingle() 
+{
+    assertEquals(5,	 	myClass(5^1));
+    assertEquals(25, 		myClass(5^2));
+    assertEquals(125, 		myClass(5^3));
+    assertEquals(1953125,	myClass(5^9));
+    assertEquals(30517578125, 	myClass(5^15));
+    assertEquals(-0.00032, 	myClass(5^(-5)));
+    assertEquals(0.00032, 	myClass((-5)^(-5)));
+    assertEquals(1, 		myClass(5^0));
+    assertEquals(1, 		myClass(1254870^0));
+    assertEquals(1, 		myClass((-5)^0));
+    assertEquals(error, 	myClass(0^0));
+}
+
+@Test
+public void testpowall() 
+{
+    assertEquals(25,	 	myClass(5*5^1));
+    assertEquals(300, 		myClass(12*5^2));
+    assertEquals(-625, 		myClass((-5)*5^3));
+    assertEquals(-1952966,	myClass(159-5^9));
+    assertEquals(-29281028238, 	myClass(1236549887-5^15));
+    assertEquals(-0,000000102, 	myClass(0.00032*5^(-5)));
+    assertEquals(-0.00032, 	myClass((-1)*(-5)^(-5)));
+    assertEquals(-1, 		myClass((-1)*5^0));
+    assertEquals(126, 		myClass(1254870^0*126));
+    assertEquals(0.1, 		myClass((-5)^0)/10);
+    assertEquals(error, 	myClass(0^0/0));
+}
+
+@Test
+public void testmod() 
+{
+    assertEquals(1,	 	myClass(5%2));
+    assertEquals(0, 		myClass(2%2));
+    assertEquals(0, 		myClass(16%4);
+    assertEquals(1,		myClass(16%3));
+    assertEquals(3, 		myClass(12%9));
+    assertEquals(0, 		myClass(123456%12));
+    assertEquals(error, 	myClass(120%0));
+}
+
+@Test
+public void testerr() 
+{
+    assertEquals(error,	 	myClass(5**2));
+    assertEquals(error, 	myClass(2*/2));
+    assertEquals(error, 	myClass(16-+4);
+    assertEquals(error,		myClass(/163*6));
+    assertEquals(error,		myClass(12/0));
+    assertEquals(error,		myClass(123456%^12));
+    assertEquals(error, 	myClass((-654)%0));
+}
+
+
