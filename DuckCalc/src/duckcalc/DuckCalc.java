@@ -13,6 +13,7 @@ import grafika.*;
 /**
  *
  * @author pavel
+ * @class DuckCalc
  */
 public class DuckCalc {
 
