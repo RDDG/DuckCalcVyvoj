@@ -14,24 +14,37 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 
 /**
- *
+ * Testy pro matematickou knihovnu. 
  * @author RDDG
+ * @date duben 2016  
+ * Třída operationTest obsahuje veškeré testy, testující jak možnosti, které mohou běžně nastat, tak i testuje 
+ samotnou funkčnost a chování matematické knihovny, při nestandartních vstupech.
  */
 public class operationTest {
-    data Data;
+    data Data;	
     operation Operation;
     double ERROR=NaN;
     public operationTest() {
     }
     
+    /**
+    * Veřejná metoda pro vytvoření třídy, nutné provést před provedením testů.
+    */   
     @BeforeClass
     public static void setUpClass() {
     }
     
+    /**
+    * Veřejná metoda pro odstranění třídy, nutné provést po provedení testů.
+    */  
     @AfterClass
     public static void tearDownClass() {
     }
     
+    /**
+    * Veřejná metoda pro inicializaci, vytvoří se nová položka Data ze třídy data, a následně nová položka 
+    Operation ze třídy operation.
+    */  
     @Before
     public void setUp() {
         Data=new data();
@@ -48,6 +61,12 @@ public class operationTest {
     // @Test
     // public void hello() {}
     
+    /**
+    * Test jednoduchého sčítání dvou sčítanců.  
+    * Nejprve se zavolá Data.pridejPriklad("xxx"), kde se za "xxx" dodá daný příklad na testování. 
+    * Každé zavolání musí obsahovat 2 sčítance a +, sčítance mohou být i záporné.
+    * Vrácené hodnoty v Operation.vyres(Data) se testují pomocí assertEquals se správnou hodnotou výsledku.
+    */
     @Test
     public void testadd() 
     {
@@ -83,6 +102,12 @@ public class operationTest {
             assertEquals(-9,            Operation.vyres(Data),0.0);
     }
     
+    /**
+    *   Test jednoduchého odčítání dvou čísel.  
+    * Nejprve se zavolá Data.pridejPriklad("xxx"), kde se za "xxx" dodá daný příklad na testování. 
+    * Každé zavolání musí obsahovat 2 čísla a -, čísla mohou být i záporné.
+    * Vrácené hodnoty v Operation.vyres(Data) se testují pomocí assertEquals se správnou hodnotou výsledku.
+    */
     @Test
     public void testsub() 
     {
@@ -117,6 +142,13 @@ public class operationTest {
             assertEquals(1,             Operation.vyres(Data),0.0);
     }
     
+    /**
+    *   Test dělení dvou čísel.  
+    * Nejprve se zavolá Data.pridejPriklad("xxx"), kde se za "xxx" dodá daný příklad na testování. 
+    * Každé zavolání musí obsahovat 2 čísla a /, čísla mohou být i záporné.
+    * Vrácené hodnoty v Operation.vyres(Data) se testují pomocí assertEquals se správnou hodnotou výsledku.
+    * V případě, že daný testovaný příklad není možné matematicky vypočítat, je vrácena hodnota NaN, která je zadefinována jako Error.
+    */
     @Test
     public void testdiv() 
     {
@@ -148,6 +180,12 @@ public class operationTest {
             assertEquals(-5,            Operation.vyres(Data),0.0);
     }
     
+    /**
+    *   Test násobení dvou čísel.  
+    * Nejprve se zavolá Data.pridejPriklad("xxx"), kde se za "xxx" dodá daný příklad na testování. 
+    * Každé zavolání musí obsahovat 2 čísla a *, čísla mohou být i záporné.
+    * Vrácené hodnoty v Operation.vyres(Data) se testují pomocí assertEquals se správnou hodnotou výsledku.
+    */
     @Test
     public void testmul() 
     {
@@ -176,6 +214,13 @@ public class operationTest {
             assertEquals(0,             Operation.vyres(Data),0.0);
     }
     
+    /**
+    *   Test výpočtu mocniny.  
+    * Nejprve se zavolá Data.pridejPriklad("xxx"), kde se za "xxx" dodá daný příklad na testování. 
+    * Každé zavolání musí obsahovat 1 číslo, takzvaný základ mocniny, následně znak mocniny ^ a následně číslo mocnitele, čísla mohou být pouze reálná.
+    * Vrácené hodnoty v Operation.vyres(Data) se testují pomocí assertEquals se správnou hodnotou výsledku.
+    * V případě, že daný testovaný příklad není možné matematicky vypočítat, je vrácena hodnota NaN, která je zadefinována jako Error.
+    */
     @Test
     public void testpowsingle() 
     {
@@ -204,6 +249,13 @@ public class operationTest {
             assertEquals(ERROR,         Operation.vyres(Data),0.0);
     }
     
+    /**
+    *   Test matematické operace modulo.  
+    * Nejprve se zavolá Data.pridejPriklad("xxx"), kde se za "xxx" dodá daný příklad na testování. 
+    * Každé zavolání musí obsahovat 2 čísla a %.
+    * Vrácené hodnoty v Operation.vyres(Data) se testují pomocí assertEquals se správnou hodnotou výsledku.
+    * V případě, že daný testovaný příklad není možné matematicky vypočítat, je vrácena hodnota NaN, která je zadefinována jako Error.
+    */
     @Test
     public void testmod() 
     {
@@ -229,6 +281,13 @@ public class operationTest {
             assertEquals(ERROR,         Operation.vyres(Data),0.0);
     }
     
+    /**
+    *   Test operace faktoriál.  
+    * Nejprve se zavolá Data.pridejPriklad("xxx"), kde se za "xxx" dodá daný příklad na testování. 
+    * Každé zavolání musí obsahovat 1 číslo a následně znak faktoriálu !, čísla mohou být pouze reálná.
+    * Vrácené hodnoty v Operation.vyres(Data) se testují pomocí assertEquals se správnou hodnotou výsledku.
+    * V případě, že daný testovaný příklad není možné matematicky vypočítat, je vrácena hodnota NaN, která je zadefinována jako Error.
+    */
     @Test
     public void testfakt() 
     {
@@ -266,6 +325,12 @@ public class operationTest {
             assertEquals(ERROR,         Operation.vyres(Data),0.0);
     }
     
+    /**
+    *   Test stavů, které nemohou projít matematickou knihovnou..  
+    * Nejprve se zavolá Data.pridejPriklad("xxx"), kde se za "xxx" dodá daný příklad na testování. 
+    * Každé zavolání obsahuje určitou chybu, třeba více matematických opreací v jednom volání.
+    * Vrácené hodnoty v Operation.vyres(Data) se testují pomocí assertEquals s hodnotou NaN, tedy hodnotou ERROR.
+    */
     @Test
     public void testerr() 
     {
