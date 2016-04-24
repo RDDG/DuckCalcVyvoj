@@ -10,8 +10,8 @@ import java.awt.*;
 import java.awt.event.*;
 
 /**
- *
- * @author pavel
+ * třída grafike je potomkem třídy JFrame, zajišťuje vykreslení rozhraní mezi uživatelem a operacemi.
+ * @author RDDG
  */
 public class grafika extends JFrame{
     /**
@@ -56,7 +56,7 @@ public class grafika extends JFrame{
     JButton tlMocnina=new JButton("^");
 
     /**
-     *
+     * public JButton pro které se definuje požadovaná operace. 
      */
     public JButton tlRovnase=new JButton("=");
     JButton tlClear=new JButton("C");
@@ -322,10 +322,11 @@ public class grafika extends JFrame{
         setContentPane(kont);
     }
     /**
-    * pridejHodnotu je privatní void metoda pro vypisovani na displej prikladu.
+     pridejHodnotu je privatní void metoda pro vypisovani na displej prikladu.
     * @param e e je ActionEvent generovaný po stisku tlačítka
     * 
-    */
+    * 
+     */
     private void pridejHodnotu(ActionEvent e){
         if(displejVysledek.getText().isEmpty()){
             if(p==0){
