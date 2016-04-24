@@ -12,6 +12,7 @@ import java.awt.event.*;
 /**
  * třída grafike je potomkem třídy JFrame, zajišťuje vykreslení rozhraní mezi uživatelem a operacemi.
  * @author RDDG
+ * 
  */
 public class grafika extends JFrame{
     /**
@@ -334,6 +335,9 @@ public class grafika extends JFrame{
                 displejPriklad.setText(priklad+e.getActionCommand());
                 if(((e.getActionCommand().equals("^")) || (e.getActionCommand().equals("+")) || (e.getActionCommand().equals("-")) || (e.getActionCommand().equals("*")) || (e.getActionCommand().equals("/")) || (e.getActionCommand().equals("%")) || (e.getActionCommand().equals("!")))){
                     p=1;
+                }
+                if(displejPriklad.getText().length()==1){
+                    p=0;
                 }
             }else
             /*if(p==1)*/{
