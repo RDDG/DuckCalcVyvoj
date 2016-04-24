@@ -8,19 +8,36 @@ package grafika;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
-/**
- * Class grafika is child of JFrame. 
- * @author RDDG
- * 
- */
 
+/**
+ *
+ * @author pavel
+ */
 public class grafika extends JFrame{
+    /**
+     * private JPanel pro na vyskládání graf komponent.
+     */
     JPanel zakladni=new JPanel();     //vytvoreni zakladniho grafickeho panelu
+    /**
+     * private Containre pro ukládání JPanelů.
+     */
     Container kont=getContentPane();  //vytvoreni grafickeho kontejnrtu
+    /**
+     * private String pro ukládání napsaného textu na displej.
+     */
     String priklad;//=new String("vypis z grafiky");
-/*** tvorba tlacitek ***/    
+//tvorba tlacitek
+    /**
+     * private JButton pro vykreslení +.
+     */
     JButton tlPlus=new JButton("+");
+    /**
+     * private JButton pro vykreslení -.
+     */
     JButton tlMinus=new JButton("-");
+    /**
+     * private JButton pro vykreslení /.
+     */
     JButton tlDeleno=new JButton("/");
     JButton tlKrat=new JButton("*");
     JButton tlModulo=new JButton("%");
@@ -37,14 +54,20 @@ public class grafika extends JFrame{
     JButton tl8=new JButton("8");
     JButton tl9=new JButton("9");
     JButton tlMocnina=new JButton("^");
+
+    /**
+     *
+     */
     public JButton tlRovnase=new JButton("=");
     JButton tlClear=new JButton("C");
+    int p=0;
     
 /*** vytvoreni displeje pro priklad a vysledek ***/
     JTextField displejPriklad=new JTextField(20);
     JTextField displejVysledek=new JTextField(20);
     
-/** grafika() is constructor, it implements base setting of windows. 
+/** grafika() je kontruktor pro jednoduchou definici okna.
+ * volá metody vykresli() pro vykreslení grafických prvků okna
 */
     public grafika(){
         super("DuckCalc RDDG");
@@ -54,8 +77,8 @@ public class grafika extends JFrame{
         vykresli();
     }
 /** 
-*   vykeresli() is privat void method without parametrs. 
-*   vykresli() is called from constructor grafika() and it displays all buttons, displays etc.
+*   vykeresli() je privátní void metoda pro vykreslení grafických prvku. 
+*   
 * 
 */
         
@@ -260,6 +283,8 @@ public class grafika extends JFrame{
         tlClear.addActionListener(new ActionListener(){
             public void actionPerformed(ActionEvent e){
                 displejPriklad.setText(null);
+                displejVysledek.setText(null);
+                p=0;
                 }
         });
         
@@ -296,15 +321,60 @@ public class grafika extends JFrame{
         kont.add(zakladni, kontDefault.CENTER);
         setContentPane(kont);
     }
-    
+    /**
+    * pridejHodnotu je privatní void metoda pro vypisovani na displej prikladu.
+    * @param e e je ActionEvent generovaný po stisku tlačítka
+    * 
+    */
     private void pridejHodnotu(ActionEvent e){
+        if(displejVysledek.getText().isEmpty()){
+            if(p==0){
+                priklad=displejPriklad.getText();
+                displejPriklad.setText(priklad+e.getActionCommand());
+                if(((e.getActionCommand().equals("^")) || (e.getActionCommand().equals("+")) || (e.getActionCommand().equals("-")) || (e.getActionCommand().equals("*")) || (e.getActionCommand().equals("/")) || (e.getActionCommand().equals("%")) || (e.getActionCommand().equals("!")))){
+                    p=1;
+                }
+            }else
+            /*if(p==1)*/{
+                if((e.getActionCommand().equals("-")) || (e.getActionCommand().equals("+"))){
+                    priklad=displejPriklad.getText();
+                    if((priklad.charAt(priklad.length()-1)=='-' || priklad.charAt(priklad.length()-1)=='+') && (priklad.charAt(priklad.length()-2)>='0' && priklad.charAt(priklad.length()-2)<='9')){
+                        displejPriklad.setText(priklad+e.getActionCommand());
+                    }
+                }
+                else if(((e.getActionCommand().equals("^")) || (e.getActionCommand().equals("*")) || (e.getActionCommand().equals("/")) || (e.getActionCommand().equals("%")) || (e.getActionCommand().equals("!")))){
+                }
+                
+                else{
+                    priklad=displejPriklad.getText();
+                    displejPriklad.setText(priklad+e.getActionCommand());
+                }
+   
+            }
+            
+            
+            
+            
+            
+      /*  if(((e.getActionCommand().equals("^")) || (e.getActionCommand().equals("+")) || (e.getActionCommand().equals("-")) || (e.getActionCommand().equals("*")) || (e.getActionCommand().equals("/")) || (e.getActionCommand().equals("%")) || (e.getActionCommand().equals("!"))) &&(p==0) ){
         priklad=displejPriklad.getText();
+        p=1;
         displejPriklad.setText(priklad+e.getActionCommand());
+        System.out.print("int+"+(int)'+');}
+        if(((e.getActionCommand().equals("^")) || (e.getActionCommand().equals("+")) || (e.getActionCommand().equals("-")) || (e.getActionCommand().equals("*")) || (e.getActionCommand().equals("/")) || (e.getActionCommand().equals("%")) || (e.getActionCommand().equals("!"))) &&(p==1) ){
+        }
+            else {//if((!(e.getActionCommand().equals("+")) || !(e.getActionCommand().equals("-")) || !(e.getActionCommand().equals("*")) || !(e.getActionCommand().equals("/")) || !(e.getActionCommand().equals("%")) || !(e.getActionCommand().equals("!"))) && Integer.parseInt(e.getActionCommand())<=(int)'9' && Integer.parseInt(e.getActionCommand())>=(int)'0' ){
+                    priklad=displejPriklad.getText();
+                    displejPriklad.setText(priklad+e.getActionCommand());
+                }*/
+        }         /*else{
+                
+                }*/
     }
     
 /**
-*   vypis() is public String method to return math example from display.
-*   @return priklad is String. In priklad is math example for solve
+*   vypis() je public String metoda, co vypisuje(return) příklad.
+*   @return priklad je typu String, obsahuje zadaní matematického příkladu
 * 
 */
     public String vypis(){
@@ -314,12 +384,14 @@ public class grafika extends JFrame{
     }
     
 /**
-*  pridejVysledek(String) is public void method to show solved math example on display.
-*  @param vysledek vysledek is String
+*  pridejVysledek(String) je public void metoda která z double udělá String a zobrazí vysledek na displeji.
+*  @param vysledek vysledek je double
 * 
 */
     public void pridejVysledek(double vysledek){
+       
         String p=""+vysledek;
         displejVysledek.setText(p);
+       
     }
 }
