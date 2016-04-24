@@ -1,44 +1,51 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package matematika;
 
 import java.util.*;
 
 /**
- *
+ * Třída data pracuje s polem struktur polozka (definovaný v polozka.java).
  * @author RDDG
+ * @date duben 2016
+ * Metody jsou veřejné, protože se budou využívat mimo třídu data.
  */
 public class data {
     public String priklad;
     ArrayList <polozka> Polozka = new ArrayList<polozka>();
     polozka p;
     
-/* pridá na konec pole novej příklad */     
+/**
+ * Vytvoří nový prvek pole a uloží do něj příklad ze vstupu předaný parametrem.
+ * @param vstupniPriklad řetězec obsahující vstupní příklad.
+ */     
     public void pridejPriklad(String vstupniPriklad){
        p = new polozka(vstupniPriklad);
        Polozka.add(p);
     }
  
-/* pridá na konec pole nový výsledek */        
+/**
+ * Přidá výsledek na konec pole - výsledek k příslušnému příkladu (ten bude vždy na konci pole).
+ * @param vysledek číslo typu double - výsledek příslušného příkladu.
+ */        
     public void pridejVysledek(double vysledek){
        Polozka.get(Polozka.size()-1).vysledek=vysledek;
     }
 
-/* vypise posledni priklad v poli */    
+/**
+ * Vypíše poslední příklad v poli struktur.
+ * @return Řetězec, ve kterém je uložen poslední příklad z pole.
+ */    
     public String vypisPosledniPriklad(){
         if ((Polozka != null) && (!Polozka.isEmpty())) {
             p = Polozka.get(Polozka.size()-1);
-        /* vytvaris si lokalni promennou priklad, ale returnuje se priklad ktery je globalni
-            String priklad = p.priklad;*/
             priklad = p.priklad;
         }
         return priklad;
     }
 
-/* vypise posledni vysledek v poli */  
+/**
+ * Vypíše poslední výsledek v poli struktur.
+ * @return Řetězec, ve kterém je uložen poslední výsledek z pole - výsledek posledního příkladu.
+ */   
     public double vypisPosledniVysledek(){
         double vysledek=0;
         if ((Polozka != null) && (!Polozka.isEmpty())) {

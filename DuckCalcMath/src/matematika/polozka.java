@@ -1,32 +1,41 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package matematika;
 
 /**
- *
+ * Třída položka je struktura, ve které je uložený příklad a k němu příslušný výsledek. 
  * @author RDDG
- * 
- * třída polozka je struktura se třemi konstruktory - využívá se přetěžovani
- * proměnné jsou veřejné pro jejich dosah i mimo třídu
+ * @date duben 2016
+ * Třída polozka je struktura se třemi konstruktory - využívá se přetěžování.
+ * Proměnné jsou veřejné pro jejich dosah i mimo třídu. Třída polozka je součástí balíčku matematika.
+ * <h3>String priklad</h3>
+ * V proměnné příklad je uložen řetězec s příkladem, který byl zadán uživatelem.
+ * <h3>double vysledek</h3>
+ * V proměnné výsledek je uložen výsledek - číslo datového typu double. Tohle číslo je výsledkem příkladu v proměnné priklad
  */
 public class polozka {
     public String priklad;
     public double vysledek;
     
-/* uloží String vstup do String priklad  */    
+/**
+ * Konstruktor, který uloží řetezec ze vstupu do proměnné priklad.
+ * @param vstup řetezec, ve kterém je uložený příklad.
+ */    
     polozka(String vstup){
        priklad = vstup;
     }
 
-/* uloží double vstup do double vysledek  */
+/**
+ * Konstruktor, který uloží číslo typu double ze vstupu do proměnné vysledek.
+ * @param vstup číslo datového typu Double, ve kterém je uložený výsledek příkladu.
+ */
     polozka(double vstup){
         vysledek = vstup;
     }
 
-/* uloží String vstupPriklad do String priklad a double vstupVysledek do Vysledek   */
+/**
+ * Konstruktor, který uloží řetezec a číslo ze vstupu do proměnných priklad a vysledek.
+ * @param vstupPriklad řetezec, ve kterém je uložený příklad.
+ * @param vstupVysledek číslo datového typu Double, ve kterém je uložený výsledek příkladu.
+ */
     polozka(String vstupPriklad, double vstupVysledek){
         priklad = vstupPriklad;
         vysledek = vstupVysledek;
