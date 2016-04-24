@@ -1,0 +1,13 @@
+DuckCalc/dist/DuckCalc.jar:
+	ant jar
+
+all: DuckCalc/build.xml
+	ant run
+
+test: DuckCalc/build.xml
+	ant test
+
+clean:
+	rm -rf build/* dist/* ..ant 
+	rmdir dist
+	rmdir build
