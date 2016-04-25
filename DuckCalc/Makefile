@@ -1,12 +1,15 @@
 dist/DuckCalc.jar:
 	ant jar
 
+pack:
+	ant jar
+
 all: build.xml
 	ant run
 
 test: build.xml
-	ant test
-
+	cd ../DuckCalcMath; ant test
+	
 clean:
 	rm -rf build/* dist/* ..ant 
 	rmdir dist
